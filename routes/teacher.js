@@ -4,6 +4,7 @@ var router = express.Router();
 
 // Указание, что модуль является экспортируемым (теперь его можно подключать в другие модули)
 module.exports = router;
+var db = require("./database.js");
 
 router.get("/listTeachers", function(req, res)  {
     var teachers = [
