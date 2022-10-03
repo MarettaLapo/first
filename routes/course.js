@@ -1,10 +1,11 @@
+module.exports = router;
 var express = require("express");
 // Вызываем функцию Router(), чтобы создать новый объект маршрутизации. Основной уже располагается в app.js
 var router = express.Router();
 
 
 // Указание, что модуль является экспортируемым (теперь его можно подключать в другие модули)
-module.exports = router;
+
 var db = require("./database.js");
 
 router.get("/listCourses", function(req, res)  {
