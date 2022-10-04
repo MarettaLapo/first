@@ -41,15 +41,26 @@ app.get("/information", function(request, response)  {
  
     response.render("test", {description: "На этой странице будет описание проекта"});
   });
-var student = require('./routes/student');
-app.use('/', student);
 
-var course = require('./routes/course');
-app.use('/', course);
-
-var teacher = require('./routes/teacher');
-app.use('/', teacher);
+  app.get("/pugPractice", function(request, response)  {   
+    response.render("pugPractice", {
+        title: "Работа с шаблонизатором Pug"
+    }); 
+});
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+var student = require('./routes/student');
+app.use('/', student);
+
+var subject = require('./routes/subject');
+app.use('/', subject);
+
+var teacher = require('./routes/teacher');
+app.use('/', teacher);
+
+var studentGroup = require('./routes/studentGroup');
+app.use('/', studentGroup);
+

@@ -1,0 +1,21 @@
+extends ../head
+block content
+    a(href="/addTeacherSubject") Добавить новую запись
+    table(border="1")
+        thead
+            tr
+                th №
+                th Дисциплина
+                th Преподаватель
+                th Действие
+        tbody
+            - var i = 1;
+            each el in teacherSubject
+                tr
+                    td #{i}
+                    td #{el.subject_name}
+                    td #{el.teacher_name}
+                    td
+                        form(action="/deleteTeacherSubject/teacherId=" + el.teacher_id + "/subjectId=" + el.subject_id, method="POST")
+                            input(type="submit" value="Удалить")
+                - i++

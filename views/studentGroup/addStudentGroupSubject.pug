@@ -1,0 +1,10 @@
+extends ../head
+block content
+    form(action="/addStudentGroupSubject" method="POST")
+        select(name="student_group_id")
+            each el in studentGroup
+                option(value=el.id) #{el.name}
+        select(name="subject_id")
+            each el in subjects
+                option(value=el.id) #{el.name}
+        input(type="submit" value="Добавить")

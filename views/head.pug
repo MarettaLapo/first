@@ -3,5 +3,13 @@ html
         meta(charset='utf-8')
         title #{title}
     body
-
-    block content  
+        nav
+            a(href="/listStudentGroups") Студенческие группы |
+            a(href="/listStudents") Студенты |
+            a(href="/listTeachers") Преподаватели |
+            a(href="/listSubjects") Учебные дисциплины |
+            a(href="/listTeacherSubject") Предметы преподавателей|
+            a(href="/listStudentGroupSubject") Учебные дисциплины группы |
+            a(href="/attendanceJournal") Журнал посещаемости
+        br
+    block content
