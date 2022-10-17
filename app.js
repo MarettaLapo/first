@@ -64,3 +64,6 @@ app.use('/', teacher);
 var studentGroup = require('./routes/studentGroup');
 app.use('/', studentGroup);
 
+var journal = require('./routes/journal');
+app.use('/', journal);
+
