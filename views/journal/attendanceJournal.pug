@@ -1,0 +1,13 @@
+extends ../head
+block append scripts
+    // подключаем скрипт
+    script(src="/js/scriptAttendanceJournal.js")
+block content
+    a(href="/attendanceForStudentGroups") Добавить отметки посещаемости
+    div
+        select(name="student_group_id" id="student_group_id")
+            each el in studentGroups
+                option(value=el.id) #{el.name}
+        input(name="subject_date" id="subject_date" type="date" placeholder="Дата занятий" required)
+        div(id="attendance_table_id")
+        

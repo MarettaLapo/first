@@ -1,0 +1,7 @@
+extends ../head
+block content
+    form(action="/updateSubject/" + subject.id, method="POST")
+        input(name="name" type="text" placeholder="Дисциплина" value=subject.name required)
+        input(type="submit" value="Обновить")
+    form(action="/deleteSubject/" + subject.id, method="POST")
+        input(type="submit" value="Удалить")

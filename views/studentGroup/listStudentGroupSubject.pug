@@ -1,0 +1,21 @@
+extends ../head
+block content
+    a(href="/addStudentGroupSubject") Добавить новую запись
+    table(border="1")
+        thead
+            tr
+                th №
+                th Группа
+                th Дисциплина
+                th Действие
+        tbody
+            - var i = 1;
+            each el in studentGroupSubject
+                tr
+                    td #{i}
+                    td #{el.student_group_name}
+                    td #{el.subject_name}
+                    td
+                        form(action="/deleteStudentGroupSubject/studentGroup=" + el.student_group_id + "/subjectId=" + el.subject_id, method="POST")
+                            input(type="submit" value="Удалить")
+                - i++

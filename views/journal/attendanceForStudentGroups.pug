@@ -1,0 +1,7 @@
+extends ../head
+block content
+    ul
+        each el in studentGroups
+            li
+                // ссылка на страницу добавления отметки посещаемости
+                a(href="/addAttendanceMark/" + el.id) #{el.name}
