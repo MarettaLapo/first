@@ -1,10 +1,14 @@
 extends ../head
 block content
+div(class="col-md-5") 
     form(action="/addStudentGroupSubject" method="POST")
-        select(name="student_group_id")
+        div(class="form-group mb-3")
+        select(name="student_group_id" class="form-select")
             each el in studentGroup
                 option(value=el.id) #{el.name}
-        select(name="subject_id")
+        div(class="form-group mb-3")
+        select(name="subject_id" class="form-select")
             each el in subjects
                 option(value=el.id) #{el.name}
-        input(type="submit" value="Добавить")
+        div(class="form-group mb-3")
+        input(type="submit" value="Добавить" class="btn btn-success")

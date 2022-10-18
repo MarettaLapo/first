@@ -1,17 +1,22 @@
 extends ../head
 block content
+    div(class="col-md-5")
     div
         h2 Группа #{studentGroup.name}
+    div(class="form-group mb-3")
     form(action="/addAttendanceMark/studentGroupId=" + studentGroup.id, method="POST")
-        select(name="student_group_subject_id")
+        div(class="form-group mb-3")
+        select(name="student_group_subject_id" class="form-select")
             each el in groupSubject
                 option(value=el.student_group_subject_id) #{el.subject_name}
-        select(name="teacher_subject_id")
+        div(class="form-group mb-3")
+        select(name="teacher_subject_id" class="form-select")
             each el in teacherSubject
                 option(value=el.teacher_subject_id) #{el.subject_name} #{el.teacher_name}
-        input(name="subject_date" id="subject_date" type="date" placeholder="Дата занятий" required)
-        table(border="1")
-            thead
+        div(class="form-group mb-3")
+        input(name="subject_date" id="subject_date" type="date" placeholder="Дата занятий" required class="form-control")
+        table(border="1" class="table table-bordered table-striped mt-3")
+            thead(class="table-primary")
                 tr
                     th №
                     th Студент
@@ -26,7 +31,8 @@ block content
                             // это поле требуется для отправки данных на сторону сервера (в данном случае данными выступают идентификаторы студентов)
                             input(name="array_students_id" type="hidden" value=el.id)
                         td
-                            input(name="attendance" + i  type="checkbox")
+                            input(name="attendance" + i  type="checkbox" class="form-check-input")
                     - i++
-        input(type="submit" value="Добавить")
+        div(class="form-group mb-3")
+        input(type="submit" value="Добавить" class="btn btn-success")
 

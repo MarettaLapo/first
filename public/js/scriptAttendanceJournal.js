@@ -49,7 +49,7 @@ $(document).ready(() => {
                     for (var j = 0; j < journal.length; j++) {
                         attendance = attendance +
                             `<td>
-                                <input name="attendance" ${i}  type="checkbox" ${journalStudent[j + n].attendance === 1 ? 'checked' : ''}>
+                                <input name="attendance" ${i}  type="checkbox" class="form-check-input" ${journalStudent[j + n].attendance === 1 ? 'checked' : ''}>
                             </td>`
                         ;
                     }
@@ -78,7 +78,7 @@ $(document).ready(() => {
                     deleteMark = deleteMark + 
                     `<td>
                         <form action="/deleteJournal/${journalStudent[i].journal_id}", method="POST">
-                            <input type="submit" value="Удалить">
+                            <input type="submit" value="Удалить" class="btn btn-danger">
                         </form>
                     </td>`
                 ;
@@ -101,8 +101,8 @@ $(document).ready(() => {
 
                 // формируем таблицу, но здесь используется "чистый" html
                 $("#attendance_table_id").append(
-                    `<table border="1">
-                        <thead>
+                    `<table border="1" class="table table-bordered table-striped mt-3">
+                        <thead class="table-primary">
                             <tr>
                                 <th></th>
                                 <th></th>

@@ -1,7 +1,12 @@
 extends ../head
 block content
+    div(class="col-md-5")
     form(action="/updateSubject/" + subject.id, method="POST")
-        input(name="name" type="text" placeholder="Дисциплина" value=subject.name required)
-        input(type="submit" value="Обновить")
+        div(class="form-group mb-3")
+        input(name="name" type="text" placeholder="Дисциплина" value=subject.name required class="form-control")
+        div(class="form-group mb-3")
+        input(type="submit" value="Обновить" class="btn btn-secondary")
+    div(class="form-group mb-3")
     form(action="/deleteSubject/" + subject.id, method="POST")
-        input(type="submit" value="Удалить")
+        div(class="form-group mb-3")
+        input(type="submit" value="Удалить" class="btn btn-danger")
