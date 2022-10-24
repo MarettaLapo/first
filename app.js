@@ -67,3 +67,27 @@ app.use('/', studentGroup);
 var journal = require('./routes/journal');
 app.use('/', journal);
 
+var passport = require('passport');
+var expressSession = require('express-session');
+var flash = require('connect-flash');
+var pp = require('passport');
+
+app.use(flash());
+app.use(expressSession({
+    secret: "key", // строка, которой подписывается сохраняемый в cookie идентификатор сессии
+    resave: true, // обеспечивает повторное сохранение сеанса в хранилище сервера при каждом запросе
+    saveUninitialized: false // сохраняет неинициализированный сеанс в хранилище. Сеанс считается неинициализированным, если он новый.
+    // Например, запрос данных со стороны неавторизованного пользователя — в таком случае сеанс считается неинициализированным и его нет смысла сохранять. 
+    // Если пользователь авторизован, то сеанс будем считаться инициализированным
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use((req, res, next) => {
+  res.locals.username = req.user ? req.user.username : "";
+  next();
+});
+
+var authentication = require('./routes/authentication');
+app.use('/', authentication);
